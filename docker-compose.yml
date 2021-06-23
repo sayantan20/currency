@@ -11,7 +11,7 @@ services:
       - currency-network
   eureka-server:
     build:
-     context: eureka-server
+     context: eureka
      dockerfile: Dockerfile
     restart: always
     ports:
