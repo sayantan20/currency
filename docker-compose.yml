@@ -2,7 +2,7 @@ version: '3.7'
 services:
   config-server:
     build:
-      context: config-server\0.0.1-SNAPSHOT
+      context: config-server
       dockerfile: Dockerfile
     restart: always
     ports: 
@@ -11,7 +11,7 @@ services:
       - currency-network
   eureka-server:
     build:
-     context: eureka\0.0.1-SNAPSHOT
+     context: eureka
      dockerfile: Dockerfile
     restart: always
     ports:
