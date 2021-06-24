@@ -1,23 +1,5 @@
 version: '3.7'
 services:
-  config-server:
-    build:
-      context: config-server
-      dockerfile: Dockerfile
-    restart: always
-    ports: 
-      - "8888:8888"
-    networks:
-      - currency-network
-  eureka-server:
-    build:
-     context: eureka
-     dockerfile: Dockerfile
-    restart: always
-    ports:
-      - "8761:8761"
-    networks:
-      - currency-network  
   conversion-service:
     build:
       context: conversion
@@ -42,5 +24,24 @@ services:
     depends_on:
       - config-server
       - eureka-server
+  config-server:
+    build:
+      context: config-server
+      dockerfile: Dockerfile
+    restart: always
+    ports: 
+      - "8888:8888"
+    networks:
+      - currency-network
+  eureka-server:
+    build:
+     context: eureka
+     dockerfile: Dockerfile
+    restart: always
+    ports:
+      - "8761:8761"
+    networks:
+      - currency-network  
+
 networks:
   currency-network:
