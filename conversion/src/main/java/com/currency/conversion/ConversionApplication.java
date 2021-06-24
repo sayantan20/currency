@@ -13,6 +13,11 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 public class ConversionApplication {
 
     public static void main(String[] args) {
+        try {
+            Thread.sleep(30 * 1000);
+        } catch (InterruptedException ex) {
+            Thread.currentThread().interrupt();
+        }
         SpringApplication.run(ConversionApplication.class, args);
     }
 

@@ -18,29 +18,29 @@ services:
       - "8761:8761"
     networks:
       - currency-network  
-#  conversion-service:
-#    build:
-#      context: conversion
-#      dockerfile: Dockerfile
-#    restart: always
-#    ports:
-#      - "80:8080"
-#    networks:
-#      - currency-network
-#    depends_on:
-#      - config-server
-#      - eureka-server
-#  exchange-service:
-#    build:
-#      context: exchange
-#      dockerfile: Dockerfile
-#    restart: always
-#    ports:
-#      - "9090:9090"
-#    networks:
-#      - currency-network
-#    depends_on:
-#      - config-server
-#      - eureka-server
+  conversion-service:
+    build:
+      context: conversion
+      dockerfile: Dockerfile
+    restart: always
+    ports:
+      - "80:8080"
+    networks:
+      - currency-network
+    depends_on:
+      - config-server
+      - eureka-server
+  exchange-service:
+    build:
+      context: exchange
+      dockerfile: Dockerfile
+    restart: always
+    ports:
+      - "9090:9090"
+    networks:
+      - currency-network
+    depends_on:
+      - config-server
+      - eureka-server
 networks:
   currency-network:
