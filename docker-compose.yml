@@ -6,7 +6,7 @@ services:
     build:
       context: config-server
       dockerfile: Dockerfile
-    restart: always
+    #restart: always
     ports:
       - "8888:8888"
     networks:
@@ -16,7 +16,7 @@ services:
       build:
         context: eureka
         dockerfile: Dockerfile
-      restart: always
+      #restart: always
       ports:
         - "8761:8761"
       networks:
@@ -26,7 +26,7 @@ services:
     build:
       context: conversion
       dockerfile: Dockerfile
-    restart: always
+    #restart: always
     ports:
       - "80:8080"
     networks:
@@ -40,7 +40,7 @@ services:
     build:
       context: exchange
       dockerfile: Dockerfile
-    restart: always
+    #restart: always
     ports:
       - "9090:9090"
     networks:
