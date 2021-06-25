@@ -1,4 +1,4 @@
-com/currency/conversion/controller/Controller.class
-com/currency/conversion/model/CurrencyConversion.class
-com/currency/conversion/config/CurrencyProxy.class
-com/currency/conversion/ConversionApplication.class
+com\currency\conversion\model\CurrencyConversion.class
+com\currency\conversion\ConversionApplication.class
+com\currency\conversion\config\CurrencyProxy.class
+com\currency\conversion\controller\Controller.class
