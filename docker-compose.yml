@@ -29,6 +29,8 @@ services:
     #restart: always
     ports:
       - "80:8080"
+      - "8081:8081"
+      - "8082:8082"
     networks:
       - currency-network
     depends_on:
@@ -43,6 +45,8 @@ services:
     #restart: always
     ports:
       - "9090:9090"
+      - "9091:9091"
+      - "9092:9092"
     networks:
       - currency-network
     depends_on:
