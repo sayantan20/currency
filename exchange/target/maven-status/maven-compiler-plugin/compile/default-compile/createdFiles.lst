@@ -1,4 +1,4 @@
-com\currency\exchange\repository\ExchangeValueRepository.class
-com\currency\exchange\model\ExchangeValue.class
-com\currency\exchange\controller\Controller.class
-com\currency\exchange\ExchangeApplication.class
+com/currency/exchange/ExchangeApplication.class
+com/currency/exchange/model/ExchangeValue.class
+com/currency/exchange/controller/Controller.class
+com/currency/exchange/repository/ExchangeValueRepository.class
