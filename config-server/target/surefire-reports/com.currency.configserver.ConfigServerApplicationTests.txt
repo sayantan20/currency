@@ -1,4 +1,9 @@
 -------------------------------------------------------------------------------
 Test set: com.currency.configserver.ConfigServerApplicationTests
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 49.057 s - in com.currency.configserver.ConfigServerApplicationTests
+Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 4.89 s <<< FAILURE! - in com.currency.configserver.ConfigServerApplicationTests
+contextLoads  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.IllegalStateException: Failed to load ApplicationContext
+Caused by: com.ulisesbocchio.jasyptspringboot.exception.DecryptionException: Unable to decrypt: ENC(9QuAUitfw2/O7494T2oJMAREHh90NOVF). Decryption of Properties failed,  make sure encryption/decryption passwords match
+Caused by: org.jasypt.exceptions.EncryptionOperationNotPossibleException
+
