@@ -9,7 +9,7 @@ public class GenerateEncry {
         standardPBEStringEncryptor.setPassword("currency");
         standardPBEStringEncryptor.setAlgorithm("PBEWITHHMACSHA512ANDAES_256");
         standardPBEStringEncryptor.setIvGenerator(new RandomIvGenerator());
-        String result = standardPBEStringEncryptor.encrypt("jdbc:h2:mem:bankdb");
+        String result = standardPBEStringEncryptor.encrypt("");
         System.out.println(result);
         System.out.println(standardPBEStringEncryptor.decrypt(result));
     }
