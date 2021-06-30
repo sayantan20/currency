@@ -9,6 +9,19 @@ services:
       - "8888:8888"
     networks:
       - currency-network
+      -
+  netflix-zuul-api:
+      build:
+        context: zuul
+        dockerfile: Dockerfile
+      restart: always
+      ports:
+        - "8765:8765"
+      networks:
+        - currency-network
+      depends_on:
+        - config-server
+        - eureka-server
 
   eureka-server:
       build:
@@ -33,6 +46,7 @@ services:
       - config-server
       - eureka-server
       - exchange-service
+      - netflix-zuul-api
 
   exchange-service:
     build:
@@ -46,6 +60,7 @@ services:
     depends_on:
       - config-server
       - eureka-server
+      - netflix-zuul-api
 
 networks:
   currency-network:
