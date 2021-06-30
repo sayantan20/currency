@@ -9,7 +9,7 @@ services:
       - "8888:8888"
     networks:
       - currency-network
-      -
+      
   netflix-zuul-api:
       build:
         context: zuul
