@@ -1,0 +1,48 @@
+spring:
+  application:
+    name: netflix-zuul-api
+server:
+  port: 8765
+
+management:
+  endpoints:
+    web:
+      base-path: /manage
+      expose:
+        include=*
+
+endpoints:
+  actuator:
+    enabled: true
+
+user:
+  role: Developer
+
+eureka:
+  client:
+    server-url:
+      defaultZone: http://eureka-server:8761/eureka/
+
+zuul:
+  prefix: /api
+  routes:
+    exchange-service:
+      path: /exchange/**
+      service-id: exchange-service
+    convert-service:
+      path: /convert/**
+      service-id: convert-service
+  host:
+    socket-timeout-millis: 7200000
+feign:
+  client:
+    config:
+      default:
+        connectionTimeout: 5000
+        readTimeout: 6000
+ribbon:
+  connectionTimeout: 6000
+  ReadTimeout: 6000
+
+
+
