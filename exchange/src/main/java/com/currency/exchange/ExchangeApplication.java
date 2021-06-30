@@ -11,11 +11,11 @@ import org.springframework.cloud.context.config.annotation.RefreshScope;
 public class ExchangeApplication {
 
 	public static void main(String[] args) {
-		try {
+		/*try {
 			Thread.sleep(30*1000);
 		} catch(InterruptedException ex) {
 			Thread.currentThread().interrupt();
-		}
+		}*/
 		SpringApplication.run(ExchangeApplication.class, args);
 	}
 
