@@ -1,0 +1,2 @@
+com\currency\zuul\ZuulApplication.class
+com\currency\zuul\filter\ZuulLoggingFilter.class
