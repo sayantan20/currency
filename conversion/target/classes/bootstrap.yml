@@ -2,12 +2,13 @@ spring:
   application:
     name: convert-service
   profiles:
-    active: test
+    active: dev
   cloud:
     bootstrap:
       enabled: true
     config:
-      uri: http://localhost:8888
+      #uri: http://localhost:8888
+      uri: http://config-server:8888
 eureka:
   client:
     register-with-eureka: true

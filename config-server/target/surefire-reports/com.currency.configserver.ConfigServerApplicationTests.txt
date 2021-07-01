@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: com.currency.configserver.ConfigServerApplicationTests
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 15.606 s - in com.currency.configserver.ConfigServerApplicationTests
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 13.628 s - in com.currency.configserver.ConfigServerApplicationTests
