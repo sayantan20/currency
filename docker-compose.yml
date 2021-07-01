@@ -57,6 +57,11 @@ services:
       - eureka-server
       - exchange-service
       - netflix-zuul-api
+    links:
+      - config-server
+      - eureka-server
+      - exchange-service
+      - netflix-zuul-api
 
   exchange-service:
     build:
@@ -68,6 +73,10 @@ services:
     networks:
       - currency-network
     depends_on:
+      - config-server
+      - eureka-server
+      - netflix-zuul-api
+    links:
       - config-server
       - eureka-server
       - netflix-zuul-api
