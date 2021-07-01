@@ -57,6 +57,11 @@ services:
         condition: service_healthy
       eureka-server:
         condition: service_healthy
+      exchange-service:
+      netflix-zuul-api:
+    links:
+      - config-server
+      - eureka-server
       - exchange-service
       - netflix-zuul-api
 
@@ -74,6 +79,10 @@ services:
         condition: service_healthy
       eureka-server:
         condition: service_healthy
+      netflix-zuul-api:
+    links:
+      - config-server
+      - eureka-server
       - netflix-zuul-api
 
 networks:
