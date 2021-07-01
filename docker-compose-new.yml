@@ -8,7 +8,7 @@ services:
     ports:
       - "8888:8888"
     healthcheck:
-      test: [ "CMD", "curl", "-I", "http://localhost:8888" ]
+      test: [ "CMD", "curl", "-I", "http://config-server:8888" ]
       interval: 15s
       timeout: 20s
       retries: 10
@@ -36,7 +36,7 @@ services:
       ports:
         - "8761:8761"
       healthcheck:
-        test: [ "CMD", "curl", "-f", "http://localhost:8761" ]
+        test: [ "CMD", "curl", "-f", "http://eureka-server:8761" ]
         interval: 15s
         timeout: 20s
         retries: 10
@@ -54,9 +54,9 @@ services:
       - currency-network
     depends_on:
       config-server:
-        condition: service_starting
+        condition: service_started
       eureka-server:
-        condition: service_starting
+        condition: service_started
     links:
       - config-server
       - eureka-server
