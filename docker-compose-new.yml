@@ -11,7 +11,7 @@ services:
       test: [ "CMD", "curl", "-I", "http://config-server:8888" ]
       interval: 5s
       timeout: 5s
-      retries: 10
+      retries: 50
     networks:
       - currency-network
 
@@ -39,7 +39,7 @@ services:
         test: [ "CMD", "curl", "-f", "http://eureka-server:8761" ]
         interval: 5s
         timeout: 3s
-        retries: 10
+        retries: 50
       networks:
         - currency-network
 
