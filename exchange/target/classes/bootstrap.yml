@@ -9,6 +9,11 @@ spring:
       #uri: http://localhost:8888
   profiles:
     active: dev
+  sleuth:
+    sampler:
+      probability: 1.0
+  rabbitmq:
+    host: rabbitmq
 eureka:
   client:
     register-with-eureka: true
