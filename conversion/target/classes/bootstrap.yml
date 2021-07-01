@@ -1,0 +1,23 @@
+spring:
+  application:
+    name: convert-service
+  profiles:
+    active: test
+  cloud:
+    bootstrap:
+      enabled: true
+    config:
+      uri: http://localhost:8888
+eureka:
+  client:
+    register-with-eureka: true
+management:
+  security:
+    enabled: false
+  endpoints:
+    web:
+      exposure:
+        includeL: "*"
+endpoints:
+  actuator:
+    enabled: true

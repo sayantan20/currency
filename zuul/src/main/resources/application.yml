@@ -3,26 +3,25 @@ spring:
     name: netflix-zuul-api
 server:
   port: 8765
-
 management:
   endpoints:
     web:
       base-path: /manage
       expose:
-        include=*
-
+        include: "*"
+  security:
+    enabled: false
 endpoints:
   actuator:
     enabled: true
-
 user:
   role: Developer
-
 eureka:
   client:
-    server-url:
-      defaultZone: http://eureka-server:8761/eureka/
-
+    register-with-eureka: true
+    serviceUrl:
+      #defaultZone: http://eureka-server:8761/eureka/
+      defaultZone: http://localhost:8761/eureka/
 zuul:
   prefix: /api
   routes:

@@ -1,0 +1,22 @@
+spring:
+  application:
+    name: exchange-service
+  cloud:
+    bootstrap:
+      enabled: true
+    config:
+      #uri: http://config-server:8888
+      uri: http://localhost:8888
+
+  profiles:
+    active: test
+eureka:
+  client:
+    register-with-eureka: true
+management:
+  security:
+    enabled: false
+  endpoints:
+    web:
+      exposure:
+        include: "*"
