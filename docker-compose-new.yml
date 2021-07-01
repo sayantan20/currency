@@ -1,0 +1,86 @@
+version: '3.8'
+services:
+  config-server:
+    build:
+      context: config-server
+      dockerfile: Dockerfile
+    restart: always
+    ports:
+      - "8888:8888"
+    healthcheck:
+      test: [ "CMD", "curl", "-I", "http://config-server:8888" ]
+      interval: 15s
+      timeout: 20s
+      retries: 10
+    networks:
+      - currency-network
+
+  netflix-zuul-api:
+      build:
+        context: zuul
+        dockerfile: Dockerfile
+      restart: always
+      ports:
+        - "80:8765"
+      networks:
+        - currency-network
+      depends_on:
+        - config-server
+        - eureka-server
+
+  eureka-server:
+      build:
+        context: eureka
+        dockerfile: Dockerfile
+      restart: on-failure
+      ports:
+        - "8761:8761"
+      healthcheck:
+        test: [ "CMD", "curl", "-f", "http://eureka-server:8761" ]
+        interval: 15s
+        timeout: 20s
+        retries: 10
+      networks:
+        - currency-network
+
+  conversion-service:
+    build:
+      context: conversion
+      dockerfile: Dockerfile
+    restart: always
+    ports:
+      - "8080:8080"
+    networks:
+      - currency-network
+    depends_on:
+      config-server:
+        condition: service_healthy
+      eureka-server:
+        condition: service_healthy
+    links:
+      - config-server
+      - eureka-server
+      - exchange-service
+      - netflix-zuul-api
+
+  exchange-service:
+    build:
+      context: exchange
+      dockerfile: Dockerfile
+    restart: always
+    ports:
+      - "9090:9090"
+    networks:
+      - currency-network
+    depends_on:
+      config-server:
+        condition: service_healthy
+      eureka-server:
+        condition: service_healthy
+    links:
+      - config-server
+      - eureka-server
+      - netflix-zuul-api
+
+networks:
+  currency-network:
