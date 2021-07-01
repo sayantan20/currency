@@ -8,9 +8,9 @@ services:
     ports:
       - "8888:8888"
     healthcheck:
-      test: [ "CMD", "curl", "-f", "http://localhost:8888/actuator/health" ]
-      interval: 10s
-      timeout: 20s
+      test: [ "CMD", "curl", "-I", "http://config-server:8888" ]
+      interval: 5s
+      timeout: 5s
       retries: 10
     networks:
       - currency-network
@@ -36,9 +36,9 @@ services:
       ports:
         - "8761:8761"
       healthcheck:
-        test: [ "CMD", "curl", "-f", "http://localhost:8761/actuator/health" ]
-        interval: 10s
-        timeout: 20s
+        test: [ "CMD", "curl", "-f", "http://eureka-server:8761" ]
+        interval: 5s
+        timeout: 3s
         retries: 10
       networks:
         - currency-network
@@ -54,9 +54,9 @@ services:
       - currency-network
     depends_on:
       config-server:
-        condition: service_started
+        condition: service_healthy
       eureka-server:
-        condition: service_started
+        condition: service_healthy
     links:
       - config-server
       - eureka-server
