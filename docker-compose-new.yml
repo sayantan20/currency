@@ -9,8 +9,8 @@ services:
       - "8888:8888"
     healthcheck:
       test: [ "CMD", "curl", "-I", "http://config-server:8888" ]
-      interval: 15s
-      timeout: 20s
+      interval: 150s
+      timeout: 200s
       retries: 30
       start_period: 15s
     networks:
@@ -38,8 +38,8 @@ services:
         - "8761:8761"
       healthcheck:
         test: [ "CMD", "curl", "-f", "http://eureka-server:8761" ]
-        interval: 15s
-        timeout: 20s
+        interval: 150s
+        timeout: 200s
         retries: 30
         start_period: 15s
       networks:
@@ -69,7 +69,7 @@ services:
     build:
       context: exchange
       dockerfile: Dockerfile
-    restart: aon-failure
+    restart: on-failure
     ports:
       - "9090:9090"
     networks:
