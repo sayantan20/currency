@@ -1,0 +1,23 @@
+spring:
+  application:
+    name: config-server
+  cloud:
+    config:
+      server:
+        git:
+          clone-on-start: true
+          uri: ENC(69/eNr0DY2bOp6jeGXK8FVAwcMyx3LcBD1beCXzqYUJbj4KST9lbEI2DxlVb4BTMHDIA3XRkw4EpUPy4JV26MS+0FimyAZhRTTuLTYe++Gw=)
+          username: ENC(Jfm4GxZ2Oc9S+tq5pQ79t43kHvPS0TePDvlOC90bP5gfQg4iineRCVZq3lK9Ug8t)
+          password: ENC(H418JzIsp9I1wpnhecCwiPKb2bpySVO50mgj+WJsefHZl1LWLy+AUWYp+IMX2t2d)
+          default-label: ENC(sRUFZNBI9xmN5/Y0GUMtRwqNkFyUeppWJI+0EPG6uJE+0QUkyRM/osMYnc30BHNp)
+          #skipSslValidation: true
+      name: config-server
+      enabled: true
+jasypt:
+  encryptor:
+    password: currency
+endpoints:
+  actuator:
+    enabled: true
+server:
+  port: 8888    
