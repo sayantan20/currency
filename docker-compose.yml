@@ -7,11 +7,11 @@ services:
     restart: always
     ports:
       - "8888:8888"
-    healthcheck:
-      test: [ "CMD", "curl", "-I", "http://config-server:8888" ]
-      interval: 5s
-      timeout: 5s
-      retries: 10
+#    healthcheck:
+#      test: [ "CMD", "curl", "-I", "http://config-server:8888" ]
+#      interval: 5s
+#      timeout: 5s
+#      retries: 10
     networks:
       - currency-network
 
@@ -35,11 +35,11 @@ services:
       restart: on-failure
       ports:
         - "8761:8761"
-      healthcheck:
-        test: [ "CMD", "curl", "-f", "http://eureka-server:8761" ]
-        interval: 5s
-        timeout: 3s
-        retries: 10
+#      healthcheck:
+#        test: [ "CMD", "curl", "-f", "http://eureka-server:8761" ]
+#        interval: 5s
+#        timeout: 3s
+#        retries: 10
       networks:
         - currency-network
 
@@ -53,13 +53,6 @@ services:
     networks:
       - currency-network
     depends_on:
-      config-server:
-        condition: service_healthy
-      eureka-server:
-        condition: service_healthy
-      #exchange-service:
-      #netflix-zuul-api:
-    links:
       - config-server
       - eureka-server
       - exchange-service
@@ -75,12 +68,6 @@ services:
     networks:
       - currency-network
     depends_on:
-      config-server:
-        condition: service_healthy
-      eureka-server:
-        condition: service_healthy
-      #netflix-zuul-api:
-    links:
       - config-server
       - eureka-server
       - netflix-zuul-api
