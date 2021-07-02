@@ -18,11 +18,11 @@ mvn clean package -DskipTests
 * Building the docker image
 
 ```
-docker build -t netfliz-zuul-api:latest .
+docker build -t netflix-zuul-api:latest .
 ```
 
 * Running the image in container
 
 ```
-docker run -p 8765:8765 -d --name netfliz-zuul-api netfliz-zuul-api:latest
+docker run -p 8765:8765 -d --name netflix-zuul-api netflix-zuul-api:latest
 ```

@@ -5,7 +5,7 @@
 ### Run com.currency.eureka.EurekaApplication as a Java Application.
 
 #### Build the application using maven
-eureka-server
+
 RUN
 `
 mvn clean package -DskipTests
