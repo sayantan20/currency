@@ -15,7 +15,7 @@ spring:
       enabled: true
 jasypt:
   encryptor:
-    password: currency
+    password: ${PASSWORD}
 endpoints:
   actuator:
     enabled: true
