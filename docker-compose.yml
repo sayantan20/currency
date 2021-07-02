@@ -34,6 +34,8 @@ services:
       context: config-server
       dockerfile: Dockerfile
     restart: always
+    environment:
+      PASSWORD: currency
     ports:
       - "8888:8888"
     networks:
