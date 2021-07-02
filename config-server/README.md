@@ -1,8 +1,18 @@
 # Config-server
+
 ## Running the Application
+
 ### Run com.currency.configserver.ConfigServerApplication as a Java Application.
 
+#### Build the application using maven
+
+RUN
+`
+mvn -DPASSWORD=#### clean package -DskipTests
+`
+
 * http://localhost:8888/exchange-service-dev/default
+
 ````
 {
 name: "exchange-service-dev",
@@ -40,7 +50,9 @@ spring.jpa.hibernate.ddl-auto: "create",
 ]
 }
 ````
+
 * http://localhost:8888/convert-service-dev/default
+
 ```
 {
 name: "convert-service-dev",
@@ -78,5 +90,18 @@ management.endpoint.web.expose.include: "*"
 }
 ]
 }
+```
 
+## Dockerize the appliaction
+
+* Building the docker image
+
+```
+docker build -t config-server:latest .
+```
+
+* Running the image in container
+
+```
+docker run -p 8888:8888 --name config-server -d -e PASSWORD=##### config-server:latest
 ```

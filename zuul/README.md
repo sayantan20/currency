@@ -1,22 +1,28 @@
-# Read Me First
-The following was discovered as part of building this project:
+# Netflix-Zuul-API
 
-* The original package name 'com.currency.config-server' is invalid and this project uses 'com.currency.configserver' instead.
+## Running the Application
 
-# Getting Started
+### Run com.currency.zuul.ZuulApplication as a Java Application.
 
-### Reference Documentation
-For further reference, please consider the following sections:
+#### Build the application using maven
+eureka-server
+RUN
+`
+mvn clean package -DskipTests
+`
+* http://localhost:8765/api
 
-* [Official Apache Maven documentation](https://maven.apache.org/guides/index.html)
-* [Spring Boot Maven Plugin Reference Guide](https://docs.spring.io/spring-boot/docs/2.5.1/maven-plugin/reference/html/)
-* [Create an OCI image](https://docs.spring.io/spring-boot/docs/2.5.1/maven-plugin/reference/html/#build-image)
-* [Spring Boot DevTools](https://docs.spring.io/spring-boot/docs/2.5.1/reference/htmlsingle/#using-boot-devtools)
-* [Spring Boot Actuator](https://docs.spring.io/spring-boot/docs/2.5.1/reference/htmlsingle/#production-ready)
 
-### Guides
-The following guides illustrate how to use some features concretely:
+## Dockerize the appliaction
 
-* [Centralized Configuration](https://spring.io/guides/gs/centralized-configuration/)
-* [Building a RESTful Web Service with Spring Boot Actuator](https://spring.io/guides/gs/actuator-service/)
+* Building the docker image
 
+```
+docker build -t netfliz-zuul-api:latest .
+```
+
+* Running the image in container
+
+```
+docker run -p 8765:8765 -d --name netfliz-zuul-api netfliz-zuul-api:latest
+```

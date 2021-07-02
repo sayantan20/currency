@@ -1,22 +1,30 @@
-# Read Me First
-The following was discovered as part of building this project:
+# Eureka
 
-* The original package name 'com.currency.config-server' is invalid and this project uses 'com.currency.configserver' instead.
+## Running the Application
 
-# Getting Started
+### Run com.currency.eureka.EurekaApplication as a Java Application.
 
-### Reference Documentation
-For further reference, please consider the following sections:
+#### Build the application using maven
+eureka-server
+RUN
+`
+mvn clean package -DskipTests
+`
+* http://localhost:8761 
 
-* [Official Apache Maven documentation](https://maven.apache.org/guides/index.html)
-* [Spring Boot Maven Plugin Reference Guide](https://docs.spring.io/spring-boot/docs/2.5.1/maven-plugin/reference/html/)
-* [Create an OCI image](https://docs.spring.io/spring-boot/docs/2.5.1/maven-plugin/reference/html/#build-image)
-* [Spring Boot DevTools](https://docs.spring.io/spring-boot/docs/2.5.1/reference/htmlsingle/#using-boot-devtools)
-* [Spring Boot Actuator](https://docs.spring.io/spring-boot/docs/2.5.1/reference/htmlsingle/#production-ready)
+This will open Spring Eureka [eureka-server](https://spring.io/guides/gs/service-registration-and-discovery/)
 
-### Guides
-The following guides illustrate how to use some features concretely:
 
-* [Centralized Configuration](https://spring.io/guides/gs/centralized-configuration/)
-* [Building a RESTful Web Service with Spring Boot Actuator](https://spring.io/guides/gs/actuator-service/)
+## Dockerize the appliaction
 
+* Building the docker image
+
+```
+docker build -t eureka-server:latest .
+```
+
+* Running the image in container
+
+```
+docker run -p 8761:8761 -d --name eureka-server eureka-server:latest
+```
