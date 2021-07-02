@@ -36,6 +36,12 @@ docker run -p 9090:9090 -p 9091:9091 -p 9092:9092 --network=currency-network --n
 ```
 
 ## Using docker-compose
+RUN 
+``
+docker-compose up -d --build
+``
+
+docker-compose.yml
 ```
 version: '3.7'
 services:
