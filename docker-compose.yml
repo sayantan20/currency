@@ -74,7 +74,7 @@ services:
       dockerfile: Dockerfile
     restart: always
     environment:
-      RABBIT_URI: amqp://guest:guest@rabbit:5672
+      RABBIT_URI: amqp://guest:guest@rabbitmq:5672
     ports:
       - "8080:8080"
     depends_on:
