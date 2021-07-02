@@ -1,11 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: com.currency.zuul.ZuulApplicationTests
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 18.072 s <<< FAILURE! - in com.currency.zuul.ZuulApplicationTests
-contextLoads  Time elapsed: 0.006 s  <<< ERROR!
-java.lang.IllegalStateException: Failed to load ApplicationContext
-Caused by: java.lang.IllegalStateException: Error processing condition on org.springframework.cloud.sleuth.autoconfig.zipkin2.ZipkinAutoConfiguration.zipkinRestTemplateCustomizer
-Caused by: java.lang.IllegalStateException: Failed to introspect Class [org.springframework.cloud.sleuth.autoconfig.zipkin2.ZipkinRestTemplateSenderConfiguration] from ClassLoader [jdk.internal.loader.ClassLoaders$AppClassLoader@73d16e93]
-Caused by: java.lang.NoClassDefFoundError: org/springframework/cloud/sleuth/zipkin2/ZipkinUrlExtractor
-Caused by: java.lang.ClassNotFoundException: org.springframework.cloud.sleuth.zipkin2.ZipkinUrlExtractor
-
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 18.475 s - in com.currency.zuul.ZuulApplicationTests
