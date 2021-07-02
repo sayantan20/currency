@@ -2,7 +2,7 @@ version: '3.7'
 services:
 
   rabbitmq:
-    image: rabbitmq:3.8.18-alpine
+    image: rabbitmq:3.8.5-management
     ports:
       - "5672:5672"
       - "15672:15672"
@@ -34,22 +34,23 @@ services:
     networks:
       - currency-network
 
-#  netflix-zuul-api:
-#      build:
-#        context: zuul
-#        dockerfile: Dockerfile
-#      restart: always
-#      environment:
-#        RABBIT_URI: amqp://guest:guest@rabbit:5672
-#      ports:
-#        - "80:8765"
-#      depends_on:
-#        - config-server
-#        - eureka-server
-#        - rabbitmq
-#        - zipkin-server
-#      networks:
-#        - currency-network
+  netflix-zuul-api:
+      build:
+        context: zuul
+        dockerfile: Dockerfile
+      restart: always
+      environment:
+        RABBIT_URI: amqp://guest:guest@rabbit:5672
+      ports:
+        - "80:8765"
+      depends_on:
+        - config-server
+        - eureka-server
+        - rabbitmq
+        rabbitmq:
+          condition: service_healthy
+      networks:
+        - currency-network
 
   eureka-server:
       build:
@@ -87,7 +88,7 @@ services:
 #      dockerfile: Dockerfile
 #    restart: always
 #    environment:
-#      RABBIT_URI: amqp://guest:guest@rabbit:5672
+#      RABBIT_URI: amqp://guest:guest@rabbitmq:5672
 #    ports:
 #      - "9090:9090"
 #    depends_on:
