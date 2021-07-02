@@ -1,4 +1,4 @@
-version: '3.8'
+version: '3.7'
 services:
 
   rabbitmq:
@@ -43,13 +43,13 @@ services:
         RABBIT_URI: amqp://guest:guest@rabbit:5672
       ports:
         - "80:8765"
-      networks:
-        - currency-network
       depends_on:
         - config-server
         - eureka-server
         - rabbitmq
         - zipkin-server
+      networks:
+        - currency-network
 
   eureka-server:
       build:
