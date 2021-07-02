@@ -15,7 +15,7 @@ services:
     container_name: zipkin
     environment:
       STORAGE_TYPE: mem
-      RABBIT_URI: amqp://guest:guest@rabbit:5672
+      RABBIT_URI: amqp://guest:guest@rabbitmq:5672
     ports:
       - "9411:9411"
     restart: always
@@ -40,15 +40,16 @@ services:
         dockerfile: Dockerfile
       restart: always
       environment:
-        RABBIT_URI: amqp://guest:guest@rabbit:5672
+        RABBIT_URI: amqp://guest:guest@rabbitmq:5672
       ports:
         - "80:8765"
       depends_on:
+        rabbitmq:
+          condition: service_healthy
+      links:
         - config-server
         - eureka-server
         - rabbitmq
-        rabbitmq:
-          condition: service_healthy
       networks:
         - currency-network
 
