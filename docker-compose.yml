@@ -2,7 +2,7 @@ version: '3.7'
 services:
 
   rabbitmq:
-    image: rabbitmq:3.8.18-management
+    image: rabbitmq:3.8.18-alpine
     ports:
       - "5672:5672"
       - "15672:15672"
@@ -34,22 +34,22 @@ services:
     networks:
       - currency-network
 
-  netflix-zuul-api:
-      build:
-        context: zuul
-        dockerfile: Dockerfile
-      restart: always
-      environment:
-        RABBIT_URI: amqp://guest:guest@rabbit:5672
-      ports:
-        - "80:8765"
-      depends_on:
-        - config-server
-        - eureka-server
-        - rabbitmq
-        - zipkin-server
-      networks:
-        - currency-network
+#  netflix-zuul-api:
+#      build:
+#        context: zuul
+#        dockerfile: Dockerfile
+#      restart: always
+#      environment:
+#        RABBIT_URI: amqp://guest:guest@rabbit:5672
+#      ports:
+#        - "80:8765"
+#      depends_on:
+#        - config-server
+#        - eureka-server
+#        - rabbitmq
+#        - zipkin-server
+#      networks:
+#        - currency-network
 
   eureka-server:
       build:
@@ -61,43 +61,43 @@ services:
       networks:
         - currency-network
 
-  conversion-service:
-    build:
-      context: conversion
-      dockerfile: Dockerfile
-    restart: always
-    environment:
-      RABBIT_URI: amqp://guest:guest@rabbit:5672
-    ports:
-      - "8080:8080"
-    depends_on:
-      - config-server
-      - eureka-server
-      - exchange-service
-      - netflix-zuul-api
-      - rabbitmq
-      - zipkin-server
-    networks:
-      - currency-network
+#  conversion-service:
+#    build:
+#      context: conversion
+#      dockerfile: Dockerfile
+#    restart: always
+#    environment:
+#      RABBIT_URI: amqp://guest:guest@rabbit:5672
+#    ports:
+#      - "8080:8080"
+#    depends_on:
+#      - config-server
+#      - eureka-server
+#      - exchange-service
+#      - netflix-zuul-api
+#      - rabbitmq
+#      - zipkin-server
+#    networks:
+#      - currency-network
 
 
-  exchange-service:
-    build:
-      context: exchange
-      dockerfile: Dockerfile
-    restart: always
-    environment:
-      RABBIT_URI: amqp://guest:guest@rabbit:5672
-    ports:
-      - "9090:9090"
-    depends_on:
-      - config-server
-      - eureka-server
-      - netflix-zuul-api
-      - rabbitmq
-      - zipkin-server
-    networks:
-      - currency-network
+#  exchange-service:
+#    build:
+#      context: exchange
+#      dockerfile: Dockerfile
+#    restart: always
+#    environment:
+#      RABBIT_URI: amqp://guest:guest@rabbit:5672
+#    ports:
+#      - "9090:9090"
+#    depends_on:
+#      - config-server
+#      - eureka-server
+#      - netflix-zuul-api
+#      - rabbitmq
+#      - zipkin-server
+#    networks:
+#      - currency-network
 
 networks:
   currency-network:
