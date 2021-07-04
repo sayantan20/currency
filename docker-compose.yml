@@ -35,9 +35,9 @@ services:
       dockerfile: Dockerfile
     restart: always
     environment:
-      PASSWORD: /run/secrets/password
-    secrets:
-      - password
+      PASSWORD: currency
+#    secrets:
+#      - password
     ports:
       - "8888:8888"
     networks:
@@ -127,7 +127,7 @@ services:
 
 networks:
   currency-network:
-
-secrets:
-  password:
-    external: true
+#
+#secrets:
+#  password:
+#    external: true
