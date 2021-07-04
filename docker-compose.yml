@@ -35,11 +35,14 @@ services:
       dockerfile: Dockerfile
     restart: always
     environment:
-      PASSWORD: currency
+      PASSWORD: /run/secrets/password
+    secrets:
+      - password
     ports:
       - "8888:8888"
     networks:
       - currency-network
+
 
   netflix-zuul-api:
       build:
@@ -124,3 +127,7 @@ services:
 
 networks:
   currency-network:
+
+secrets:
+  password:
+    external: true
